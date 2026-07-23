@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Temani Photobooth | Jasa Photobooth Wedding & Event</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- FLOATING CTA WHATSAPP -->
+    <button class="floating-wa" onclick="openWhatsAppBooking()">
+        <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp" width="35">
+    </button>
+    <div class="success-notif" id="successMsg">✅ Pesanan terkirim! Admin akan segera hubungi.</div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            
+            <div class="logo" onclick="document.getElementById('hero').scrollIntoView({behavior:'smooth'})">
+                 Temani Photobooth
+            </div>
+            <div class="nav-links">
+    <a href="#hero">Beranda</a>
+    <a href="#portfolio">Galeri</a>
+    <a href="#paket">Paket</a>
+    <a href="#faq">FAQ</a>
+    <!-- Tombol Keranjang / Form Order di Navbar -->
+    <a href="checkout.html" class="btn-cart-nav" style="background: var(--color-dark); color: white; padding: 0.5rem 1.2rem; border-radius: 20px;">🛒 Keranjang-Order</a>
+</div>
+            </div>
+            <button class="mobile-menu-btn" id="menuBtn">☰</button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+        <div class="container hero-container">
+            <div class="hero-text reveal">
+    <!-- Tambahkan baris di bawah ini, ganti 'logo.png' dengan nama file logomu -->
+    <img src="aset/logo.png" alt="Logo Temani Photobooth" style="max-width: 150px; margin-bottom: 20px;">
+    
+    <h1>Bersama Temani,<br>Setiap momen jadi tak terlupakan</h1>
+                <p>Temani Photobooth hadir untuk mengabadikan momen terbaik di setiap acara dengan pengalaman foto yang seru, modern, dan berkesan. Cocok untuk wedding, kampus, sekolah, gathering, ulang tahun, hingga corporate event</p>
+                <a href="#paket" class="btn-primary">Lihat Paket</a>
+            </div>
+            
+            <div class="hero-images reveal">
+                <div class="photostrip photostrip-1">
+                    <img src="aset/fotostrip2.jpg" alt="Photostrip 1">
+                </div>
+                <div class="photostrip photostrip-2">
+                    <img src="aset/strip3.jpg" alt="Photostrip 2">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTIK (Counter animasi saat discroll) -->
+    <section class="stats-section">
+        <div class="container stats-grid">
+            <div class="stat-item reveal">
+                <h2 class="counter" data-target="199">0</h2><span>+</span>
+                <p>Event Sukses</p>
+            </div>
+            <div class="stat-item reveal">
+                <h2 class="counter" data-target="10000">0</h2><span>+</span>
+                <p>Foto Dicetak</p>
+            </div>
+            <div class="stat-item reveal">
+                <h2 class="counter" data-target="100">0</h2><span>+</span>
+                <p>Klien Puas</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLIENT TRUST (Marquee) -->
+    <section class="trust-section">
+        <h3 style="text-align: center; margin-bottom: 1rem; color: var(--color-brown);">Dipercaya Berbagai Brand dan Institusi</h3>
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <span>Bosua Bina Insani</span>
+                <span>Kampus IPB</span>
+                <span>Kemenkes Poltekkes jakarta III</span>
+                <span>Tempo Media Grup</span>
+                <span>Event Organizer</span>
+                <span>SMA 1 Bogor</span>
+                <!-- Duplicate agar loopnya mulus -->
+                <span>Sekolah Global</span>
+                <span>Kampus UI</span>
+                <span>Runners Club</span>
+                <span>PT. Astra</span>
+                <span>Rupa Event Organizer</span>
+                <span>SMA 1 Bogor</span>
+                <span>Uin Jakarta</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERI TERBARU (Foto & Video) -->
+    <section id="galeri-terbaru" class="section-padding">
+        <div class="container">
+            <h2 class="section-title reveal">Galeri Event Terbaru</h2>
+            <div class="recent-grid reveal">
+                
+                <!-- CARA EDIT: Ganti link https://... dengan nama file fotomu (contoh: "images/terbaru1.jpg") -->
+                <div class="recent-item">
+                    <img src="aset/fotobaru.png" loading="lazy" alt="Event Terbaru 1">
+                </div>
+                
+                <!-- CARA EDIT VIDEO: Ganti link src="..." di bawah dengan nama file videomu (contoh: "video/event.mp4") -->
+                <div class="recent-item">
+                    <video autoplay loop muted playsinline style="width: 100%; border-radius: 20px;">
+                        <source src="aset/materi 2.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO MASONRY -->
+    <section id="portfolio" class="section-padding" style="background: var(--color-cream);">
+        <div class="container">
+            <h2 class="section-title reveal">Portfolio Kami</h2>
+            
+            <!-- Filter Kategori -->
+            <div class="filter-container reveal">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="wedding">Wedding</button>
+                <button class="filter-btn" data-filter="kampus">Kampus</button>
+                <button class="filter-btn" data-filter="sekolah">Sekolah</button>
+                <button class="filter-btn" data-filter="corporate">Corporate</button>
+                <button class="filter-btn" data-filter="birthday">Birthday</button>
+            </div>
+
+            <!-- CARA EDIT PORTFOLIO: 
+                 1. data-cat = "..." (Sesuaikan dengan kategori: wedding, kampus, dll)
+                 2. src="..." (Ganti dengan link fotomu) -->
+            <div class="masonry-grid reveal">
+                <div class="masonry-item" data-cat="wedding">
+                    <div class="image-slider-wrapper">
+        <img src="aset/weding/25.png" alt="Foto 1" class="lightbox-trigger">
+        <img src="aset/weding/26.png" alt="Foto 2" class="lightbox-trigger">
+        <img src="aset/weding/27.png" alt="Foto 3" class="lightbox-trigger">
+    </div>
+                </div>
+                <div class="masonry-item" data-cat="kampus">
+    <div class="image-slider-wrapper">
+        <img src="aset/koran/1.jpg" alt="Kampus 1" class="lightbox-trigger">
+        <img src="aset/koran/2.jpg" alt="Kampus 2" class="lightbox-trigger">
+        <img src="aset/koran/3.jpg" alt="Kampus 3" class="lightbox-trigger">
+    </div>
+                </div>
+                <div class="masonry-item" data-cat="corporate">
+                    <img src="aset/26.JPG" loading="lazy" alt="Corporate" class="lightbox-trigger">
+                 </div>
+                <div class="masonry-item" data-cat="birthday">
+                    <video autoplay loop muted playsinline style="width: 100%; display: block;">
+                      <source src="aset/v3.mp4" type="video/mp4">
+                      Browser Anda tidak Mendukung Tag Video.
+                 </video>
+                 </div>
+                 <div class="masonry-item" data-cat="sekolah">
+                    <video autoplay loop muted playsinline style="width: 100%; display: block;">
+                      <source src="aset/v4.mp4" type="video/mp4">
+                      Browser Anda tidak Mendukung Tag Video.
+                 </video>
+                 </div>
+                 <div class="masonry-item" data-cat="custum">
+                    <video autoplay loop muted playsinline style="width: 100%; display: block;">
+                      <source src="aset/v5.mp4" type="video/mp4">
+                      Browser Anda tidak Mendukung Tag Video.
+                 </video>
+                 </div>
+                 <div class="masonry-item" data-cat="sekolah">
+                    <video autoplay loop muted playsinline style="width: 100%; display: block;">
+                      <source src="aset/v6.mp4" type="video/mp4">
+                      Browser Anda tidak Mendukung Tag Video.
+                 </video>
+                 </div>
+                 <div class="masonry-item" data-cat="kampus">
+                    <video autoplay loop muted playsinline style="width: 100%; display: block;">
+                      <source src="aset/v7.mp4" type="video/mp4">
+                      Browser Anda tidak Mendukung Tag Video.
+                 </video>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAKET HARGA (Dari versi sebelumnya) -->
+    <section id="paket" class="paket-section section-padding">
+        <div class="container">
+            <h2 class="section-title reveal">Harga & Paket</h2>
+            <div class="pricing-grid reveal">
+
+
+                
+                <!-- Paket Standar -->
+                <div class="pricing-card">
+                    <div class="pricing-header">Paket Standar</div>
+                    <span class="badge-harga">Harga Normal</span>
+                    <h3 class="price-title">Rp 1.300.000</h3>
+                    <p class="price-subtitle">2 Jam Unlimited</p>
+                    <button class="btn-order" onclick="window.location.href='checkout.html?paket=Paket Standar 2 Jam'">Order Sekarang</button>
+                    <h4 class="fasilitas-title">✨ Fasilitas:</h4>
+                    <ul class="fasilitas-list">
+                        <li><span>✅</span> Unlimited 2 jam</li>
+                        <li><span>✅</span> Print 2R 4R</li>
+                        <li><span>✅</span> Free desain frame</li>
+                        <li><span>✅</span> Free transportasi</li>
+                        <li><span>✅</span> Properti, Soft file, Gift</li>
+                        <li><span>✅</span> Profesional Crew </li>
+                        <li><span>✅</span> Backdrop</li>
+                    </ul>
+                </div>
+                <!-- Paket Seru -->
+                <div class="pricing-card">
+                    <div class="pricing-header">Paket Seru</div>
+                    <span class="badge-harga">Harga Normal</span>
+                    <h3 class="price-title">Rp 1.500.000</h3>
+                    <p class="price-subtitle">3 Jam Unlimited</p>
+                    <button class="btn-order" onclick="window.location.href='checkout.html?paket=Paket Normal 3 Jam'">Order Sekarang</button>
+                    <h4 class="fasilitas-title">✨ Fasilitas:</h4>
+                    <ul class="fasilitas-list">
+                        <li><span>✅</span> Unlimited 3 jam</li>
+                        <li><span>✅</span> Print 2R 4R</li>
+                        <li><span>✅</span> Free desain frame</li>
+                        <li><span>✅</span> Free transportasi</li>
+                        <li><span>✅</span> Properti, Soft file, Gift</li>
+                        <li><span>✅</span> Original Foto</li>
+                        <li><span>✅</span> Profesional Crew </li>
+                        <li><span>✅</span> Backdrop</li>
+                    </ul>
+                    <div class="bonus-box">
+                        <strong>🎁 Bonus:</strong>
+                        <ul>
+                            <li>Prioritas desain frame custom</li>
+                            <li>Hasil foto lebih banyak</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Paket Premium -->
+                <div class="pricing-card">
+                    <div class="pricing-header">Paket Premium</div>
+                    <span class="badge-harga">Harga Normal</span>
+                    <h3 class="price-title">Rp 1.990.000</h3>
+                    <p class="price-subtitle">5 Jam Unlimited</p>
+                    <button class="btn-order" onclick="window.location.href='checkout.html?paket=Paket Premium 5 Jam'">Order Sekarang</button>
+                    <h4 class="fasilitas-title">✨ Fasilitas:</h4>
+                    <ul class="fasilitas-list">
+                        <li><span>✅</span> Unlimited 5 jam</li>
+                        <li><span>✅</span> Print 2R 4R</li>
+                        <li><span>✅</span> Free desain frame</li>
+                        <li><span>✅</span> Free transportasi</li>
+                        <li><span>✅</span> Properti, Soft file, Gift</li>
+                        <li><span>✅</span> Original Foto</li>
+                        <li><span>✅</span> Profesional Crew </li>
+                        <li><span>✅</span> Backdrop</li>
+                    </ul>
+                    <div class="bonus-box">
+                        <strong>🎁 Bonus:</strong>
+                        <ul>
+                            <li>Prioritas desain frame custom</li>
+                            <li>Free keychain </li>
+                            <li>Album Foto A4</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Paket Newspaper 2 Jam -->
+<div class="pricing-card newspaper-card">
+    <div class="pricing-header">Paket Newspaper</div>
+    <span class="badge-harga">Harga Normal</span>
+    <h3 class="price-title">Rp 1.390.000</h3>
+    <p class="price-subtitle">2 Jam Unlimited</p>
+    <button class="btn-order" onclick="window.location.href='checkout.html?paket=Paket Newspaper 2 Jam'">Order Sekarang</button>
+    <h4 class="fasilitas-title">✨ Fasilitas:</h4>
+    <ul class="fasilitas-list">
+        <li><span>✅</span> Unlimited 2 jam</li>
+        <li><span>✅</span> Print A4 Koran</li>
+        <li><span>✅</span> Free desain frame</li>
+        <li><span>✅</span> Free transportasi</li>
+        <li><span>✅</span> Properti</li>
+        <li><span>✅</span> Soft file</li>
+        <li><span>✅</span> Gift</li>
+        <li><span>✅</span> Profesional Crew</li>
+        <li><span>✅</span> Backdrop</li>
+    </ul>
+</div>
+
+<!-- Paket Newspaper 3 Jam -->
+<div class="pricing-card newspaper-card">
+    <div class="pricing-header">Paket Newspaper</div>
+    <span class="badge-harga">Harga Normal</span>
+    <h3 class="price-title">Rp 1.599.000</h3>
+    <p class="price-subtitle">3 Jam Unlimited</p>
+    <button class="btn-order" onclick="window.location.href='checkout.html?paket=Paket Newspaper 3 Jam'">Order Sekarang</button>
+    <h4 class="fasilitas-title">✨ Fasilitas:</h4>
+    <ul class="fasilitas-list">
+        <li><span>✅</span> Unlimited 3 jam</li>
+        <li><span>✅</span> Print A4 Koran</li>
+        <li><span>✅</span> Free desain frame</li>
+        <li><span>✅</span> Free transportasi</li>
+        <li><span>✅</span> Properti</li>
+        <li><span>✅</span> Soft file</li>
+        <li><span>✅</span> Gift</li>
+        <li><span>✅</span> Profesional Crew</li>
+        <li><span>✅</span> Backdrop</li>
+    </ul>
+</div>
+            </div>
+            
+        </div>
+        
+    </section>
+    
+
+    
+    <section class="section-padding" style="background: var(--color-white);">
+        <div class="container">
+            <h2 class="section-title reveal">Apa Kata Mereka</h2>
+            <div class="testi-grid reveal">
+                   
+                <div class="testi-card">
+                    <img src="aset/pm1.jpg" alt="Profil">
+                    <h4>Rizka & Fadly</h4>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Fotonya jernih banget! Crewnya asik dan ngebantu banget pas ngarahin gaya tamu. Rekomen buat wedding!"</p>
+                </div>
+                <div class="testi-card">
+                    <img src="aset/unpam.png" alt="Profil">
+                    <h4>BEM Kampus</h4>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Acara wisuda kampus jadi makin pecah berkat Temani Photobooth. Antriannya panjang tapi cepat banget proses cetaknya."</p>
+                </div>
+                <div class="testi-card">
+                    <img src="aset/profil1.jpg" alt="Profil">
+                    <h4>Dr.Tina (Corporate)</h4>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Desain framenya elegan sesuai banget sama request kantor. Hasil fotonya juga dibagikan cepat lewat soft file."</p>
+                </div>
+                <div class="testi-card">
+                    <img src="aset/profil2.jpg" alt="Profil">
+                    <h4>Sheren IPB</h4>
+                    <div class="stars">⭐⭐⭐⭐</div>
+                    <p>"Anak-anak suka banget sama properti lucunya di acara ulang tahun. Puas banget pokoknya!"</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MAPS & FAQ -->
+    <section id="faq" class="section-padding">
+        <div class="container">
+            <div class="maps-faq-container">
+                <!-- Bagian Kiri: FAQ -->
+                <div class="faq-box reveal">
+                    <h2 style="color: var(--color-dark); margin-bottom: 2rem;">Pertanyaan Umum</h2>
+                    <details class="faq-item">
+                        <summary>Berapa lama durasi photobooth?</summary>
+                        <p>Durasi bervariasi tergantung paket yang dipilih, mulai dari 2 jam, 3 jam, hingga 5 jam unlimited cetak.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Apakah bisa custom frame?</summary>
+                        <p>Tentu saja! Kami memberikan layanan free desain frame custom yang disesuaikan dengan tema dan warna acara Anda.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Apakah tersedia di luar kota?</summary>
+                        <p>Kami melayani area Bogor dan Jabodetabek. Terdapat free transport untuk area tertentu. Hubungi admin untuk detailnya.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Bagaimana cara booking?</summary>
+                        <p>Sangat mudah! Klik tombol WhatsApp di web ini, sebutkan tanggal acara dan paket yang diinginkan, admin kami akan segera memprosesnya.</p>
+                    </details>
+                </div>
+                
+                <!-- Bagian Kanan: Maps -->
+                <div class="maps-box reveal">
+                    <h2 style="color: var(--color-dark); margin-bottom: 2rem;">Lokasi Kami</h2>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126829.41215160533!2d106.76189569037343!3d-6.49520790899479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c1a5b82e2fa7%3A0xf6398ba16892621f!2sPekansari%2C%20Cibinong%2C%20Bogor%20Regency%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" 
+                        width="100%" 
+                        height="300" 
+                        style="border:0; border-radius: 20px;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                    <p style="margin-top: 1rem; color: var(--color-brown); font-weight: 600;">📍 Pekansari, Cibinong, Bogor, Jawa Barat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h2>Temani Photobooth</h2>
+                <p>Abadikan bahagia, tanpa batas cetak.</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Hubungi Kami</h3>
+                <p>📞 WhatsApp: 0821-2861-4356</p>
+                <p>📧 Email: studiogaga02@gmail.com</p>
+                <p>📍 Alamat: Pekansari, Cibinong, Bogor, Jawa Barat</p>
+            </div>
+            <div class="footer-social">
+                <h3>Sosial Media</h3>
+                <p>📱 Instagram: <a href="https://instagram.com/temaniphotobooth" target="_blank">@temaniphotobooth</a></p>
+                <p>🎵 TikTok: <a href="https://tiktok.com/@temaniphotobooth" target="_blank">@temaniphotobooth</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Temani Photobooth. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX MODAL (Untuk Preview Gambar) -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script src="script.js"></script>
+
+
+</body>
+</html>

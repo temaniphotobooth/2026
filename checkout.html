@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Order | Temani Photobooth</title>
+    <!-- Memanggil file CSS utama Anda -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Styling khusus halaman checkout */
+        body {
+            background-color: var(--color-cream);
+            padding: 2rem 1rem;
+        }
+        .checkout-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: var(--color-white);
+            padding: 2.5rem;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        .checkout-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .checkout-header h2 {
+            color: var(--color-dark);
+            font-size: 1.8rem;
+        }
+        .btn-back {
+            text-decoration: none;
+            color: var(--color-brown);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .form-group {
+            margin-bottom: 1.2rem;
+            text-align: left;
+        }
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-dark);
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            background: #fff;
+        }
+        .info-rek-box {
+            background: var(--color-cream);
+            border: 1px dashed var(--color-brown);
+            padding: 1.2rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            margin: 1.5rem 0;
+            color: var(--color-dark);
+            line-height: 1.6;
+        }
+        .btn-submit-wa {
+            width: 100%;
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-submit-wa:hover {
+            background: #20b959;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="checkout-container">
+        <div class="checkout-header">
+            <h2>Formulir Order</h2>
+            <a href="index.html" class="btn-back">← Kembali ke Beranda</a>
+        </div>
+
+        <form id="waForm" onsubmit="sendWhatsAppOrder(event)">
+            <div class="form-group">
+                <label>Nama pengantin/pemesan :</label>
+                <input type="text" id="f_nama" required placeholder="Contoh: Rian & Siska">
+            </div>
+            <div class="form-group">
+                <label>Nama acara :</label>
+                <input type="text" id="f_acara" required placeholder="Contoh: Wedding / Wisuda">
+            </div>
+            <div class="form-group">
+                <label>Lokasi acara :</label>
+                <input type="text" id="f_lokasi" required placeholder="Contoh: Gedung Braja Mustika, Bogor">
+            </div>
+            <div class="form-group">
+                <label>Hari/tanggal acara :</label>
+                <input type="text" id="f_tanggal" required placeholder="Contoh: Sabtu, 25 Agustus 2026">
+            </div>
+            <div class="form-group">
+                <label>Waktu photobooth/waktu acara :</label>
+                <input type="text" id="f_waktu" required placeholder="Contoh: 11.00 - 13.00 WIB">
+            </div>
+            <div class="form-group">
+                <label>Paket yang dipilih :</label>
+                <input type="text" id="f_paket" required placeholder="Contoh: Paket Seru / Paket Newspaper">
+            </div>
+            <div class="form-group">
+                <label>Pilihan backdrop :</label>
+                <input type="text" id="f_backdrop" required placeholder="Contoh: Rustic Floral / Minimalist White">
+            </div>
+            <div class="form-group">
+                <label>Pilihan template :</label>
+                <input type="text" id="f_template" required placeholder="Contoh: Template Strip 3 Foto">
+            </div>
+            
+            <div class="info-rek-box">
+                <p><strong>Pembayaran DP sebesar Rp. 500.000</strong> untuk keep tanggal dan pelunasan H-1 acara</p>
+                <p style="margin-top: 8px;"><strong>No. rek :</strong><br>1943748616 (BNI) a.n Yoga Nugraha</p>
+            </div>
+
+            <button type="submit" class="btn-submit-wa">Kirim Pesanan via WhatsApp 🚀</button>
+        </form>
+    </div>
+
+    <script>
+        // Mengambil data nama paket dari URL jika user mengklik "Order Sekarang" dari halaman utama
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedPaket = urlParams.get('paket');
+            if (selectedPaket) {
+                document.getElementById('f_paket').value = decodeURIComponent(selectedPaket);
+            }
+        });
+
+        // Fungsi Mengirim Data Form ke WhatsApp
+        function sendWhatsAppOrder(event) {
+            event.preventDefault();
+            
+            const nama = document.getElementById('f_nama').value;
+            const acara = document.getElementById('f_acara').value;
+            const lokasi = document.getElementById('f_lokasi').value;
+            const tanggal = document.getElementById('f_tanggal').value;
+            const waktu = document.getElementById('f_waktu').value;
+            const paket = document.getElementById('f_paket').value;
+            const backdrop = document.getElementById('f_backdrop').value;
+            const template = document.getElementById('f_template').value;
+            
+            const nomorWA = '6282128614356'; // Nomor WhatsApp Anda
+            
+            // Format pesan WhatsApp
+            const pesan = `Halo Admin Temani Photobooth,%0ASaya ingin melakukan pemesanan dengan detail berikut:%0A%0A*Formulir Order*%0A- Nama pengantin/pemesan : ${nama}%0A- Nama acara : ${acara}%0A- Lokasi acara : ${lokasi}%0A- Hari/tanggal acara : ${tanggal}%0A- Waktu photobooth/waktu acara : ${waktu}%0A- Paket yang dipilih : ${paket}%0A- Pilihan backdrop : ${backdrop}%0A- Pilihan template : ${template}%0A%0APembayaran DP sebesar Rp. 500.000 untuk keep tanggal dan pelunasan H-1 acara melalui:%0ANo. rek : 1943748616 (BNI) a.n Yoga Nugraha%0A%0AMohon konfirmasinya ya kak. Terima kasih!`;
+            
+            // Membuka WhatsApp
+            window.open(`https://wa.me/${nomorWA}?text=${pesan}`, '_blank');
+        }
+    </script>
+</body>
+</html>
