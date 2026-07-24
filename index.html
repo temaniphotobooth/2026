@@ -17,19 +17,21 @@
     <div class="success-notif" id="successMsg">✅ Pesanan terkirim! Admin akan segera hubungi.</div>
 
     <!-- NAVBAR -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            
-            <div class="logo" onclick="document.getElementById('hero').scrollIntoView({behavior:'smooth'})">
-                 Temani Photobooth
-            </div>
-            <div class="nav-links">
-    <a href="#hero">Beranda</a>
-    <a href="#portfolio">Galeri</a>
-    <a href="#paket">Paket</a>
-    <a href="#faq">FAQ</a>
-    <!-- Tombol Keranjang / Form Order di Navbar -->
-    <a href="checkout.html" class="btn-cart-nav" style="background: var(--color-dark); color: white; padding: 0.5rem 1.2rem; border-radius: 20px;">🛒 Keranjang-Order</a>
+    <nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">Temani Photobooth</div>
+        <div class="nav-links" id="navLinks">
+            <a href="#hero">Beranda</a>
+            <a href="#portfolio">Galeri</a>
+            <a href="#paket">Paket</a>
+            <a href="#faq">FAQ</a>
+            <!-- Tombol Keranjang / Order di Navbar -->
+            <a href="checkout.html" class="btn-cart-nav" style="background: var(--color-dark); color: white; padding: 0.5rem 1.2rem; border-radius: 20px; text-decoration: none;">🛒 Order</a>
+        </div>
+        <!-- Tombol garis tiga untuk HP -->
+        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+    </div>
+</nav>
 </div>
             </div>
             <button class="mobile-menu-btn" id="menuBtn">☰</button>
