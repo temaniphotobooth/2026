@@ -17,22 +17,20 @@
     <div class="success-notif" id="successMsg">✅ Pesanan terkirim! Admin akan segera hubungi.</div>
 
     <!-- NAVBAR -->
-    <nav class="navbar">
-    <div class="nav-container">
-        <div class="logo">Temani Photobooth</div>
-        <div class="nav-links" id="navLinks">
-            <a href="#hero">Beranda</a>
-            <a href="#portfolio">Galeri</a>
-            <a href="#paket">Paket</a>
-            <a href="#faq">FAQ</a>
-            <!-- Tombol Keranjang / Order di Navbar -->
-            <a href="checkout.html" class="btn-cart-nav" style="background: var(--color-dark); color: white; padding: 0.5rem 1.2rem; border-radius: 20px; text-decoration: none;">🛒 Order</a>
-        </div>
-        <!-- Tombol garis tiga untuk HP -->
-        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
-    </div>
-</nav>
-</div>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            
+            <div class="logo" onclick="document.getElementById('hero').scrollIntoView({behavior:'smooth'})">
+                 Temani Photobooth
+            </div>
+            <!-- ID 'navLinks' ditambahkan di bawah ini agar sistem toggle menu HP berfungsi normal -->
+            <div class="nav-links" id="navLinks">
+                <a href="#hero">Beranda</a>
+                <a href="#portfolio">Galeri</a>
+                <a href="#paket">Paket</a>
+                <a href="#faq">FAQ</a>
+                <!-- Tombol Keranjang / Form Order di Navbar -->
+                <a href="checkout.html" class="btn-cart-nav" style="background: var(--color-dark); color: white; padding: 0.5rem 1.2rem; border-radius: 20px;">🛒 Keranjang-Order</a>
             </div>
             <button class="mobile-menu-btn" id="menuBtn">☰</button>
         </div>
@@ -164,31 +162,31 @@
                     <video autoplay loop muted playsinline style="width: 100%; display: block;">
                       <source src="aset/v3.mp4" type="video/mp4">
                       Browser Anda tidak Mendukung Tag Video.
-                 </video>
+                   </video>
                  </div>
                  <div class="masonry-item" data-cat="sekolah">
                     <video autoplay loop muted playsinline style="width: 100%; display: block;">
                       <source src="aset/v4.mp4" type="video/mp4">
                       Browser Anda tidak Mendukung Tag Video.
-                 </video>
+                   </video>
                  </div>
                  <div class="masonry-item" data-cat="custum">
                     <video autoplay loop muted playsinline style="width: 100%; display: block;">
                       <source src="aset/v5.mp4" type="video/mp4">
                       Browser Anda tidak Mendukung Tag Video.
-                 </video>
+                   </video>
                  </div>
                  <div class="masonry-item" data-cat="sekolah">
                     <video autoplay loop muted playsinline style="width: 100%; display: block;">
                       <source src="aset/v6.mp4" type="video/mp4">
                       Browser Anda tidak Mendukung Tag Video.
-                 </video>
+                   </video>
                  </div>
                  <div class="masonry-item" data-cat="kampus">
                     <video autoplay loop muted playsinline style="width: 100%; display: block;">
                       <source src="aset/v7.mp4" type="video/mp4">
                       Browser Anda tidak Mendukung Tag Video.
-                 </video>
+                   </video>
                  </div>
             </div>
         </div>
@@ -320,13 +318,11 @@
         
     </section>
     
-
-    
     <section class="section-padding" style="background: var(--color-white);">
         <div class="container">
             <h2 class="section-title reveal">Apa Kata Mereka</h2>
             <div class="testi-grid reveal">
-                   
+                 
                 <div class="testi-card">
                     <img src="aset/pm1.jpg" alt="Profil">
                     <h4>Rizka & Fadly</h4>
@@ -428,8 +424,32 @@
         <img class="lightbox-content" id="lightbox-img">
     </div>
 
-    <script src="script.js"></script>
+    <!-- Script tambahan untuk memastikan tombol hamburger (☰) berfungsi di perangkat mobile -->
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        if (menuBtn && navLinks) {
+            menuBtn.addEventListener('click', () => {
+                if (navLinks.style.display === 'flex') {
+                    navLinks.style.display = 'none';
+                } else {
+                    navLinks.style.display = 'flex';
+                    navLinks.style.flexDirection = 'column';
+                    navLinks.style.position = 'absolute';
+                    navLinks.style.top = '100%';
+                    navLinks.style.left = '0';
+                    navLinks.style.width = '100%';
+                    navLinks.style.background = '#3e2522';
+                    navLinks.style.padding = '1.5rem';
+                    navLinks.style.textAlign = 'center';
+                    navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.3)';
+                }
+            });
+        }
+    </script>
 
+    <script src="script.js"></script>
 
 </body>
 </html>
