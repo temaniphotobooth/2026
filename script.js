@@ -110,3 +110,21 @@ function openWhatsApp(namaPaket) {
     const pesan = `Halo Admin Temani Photobooth, saya tertarik dan ingin order *${namaPaket}*. Boleh info lebih lanjut?`;
     window.open(`https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`, '_blank');
 }
+// Fungsi untuk memunculkan/menutup menu saat ikon garis tiga diklik di HP
+function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    if (navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none';
+    } else {
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '100%';
+        navLinks.style.left = '0';
+        navLinks.style.width = '100%';
+        navLinks.style.background = '#b37d0a';
+        navLinks.style.padding = '1.5rem';
+        navLinks.style.textAlign = 'center';
+        navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.3)';
+    }
+}
