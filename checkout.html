@@ -6,269 +6,191 @@
     <title>Formulir Order | Temani Photobooth</title>
     <!-- Memanggil file CSS utama Anda -->
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* ============================================
-           Checkout — Minimalist Clean Design
-           ============================================ */
-        :root {
-            --ck-bg: var(--color-cream, #F7F4EF);
-            --ck-surface: var(--color-white, #FFFFFF);
-            --ck-ink: var(--color-dark, #2B2622);
-            --ck-muted: #8A8177;
-            --ck-line: #E9E4DC;
-            --ck-accent: var(--color-brown, #A9683F);
-            --ck-accent-soft: #F1E8DE;
-            --ck-danger: #C0503B;
-            --ck-success: #2F8F5B;
-        }
-
+        /* Styling khusus halaman checkout */
         body {
-            background-color: var(--ck-bg);
-            padding: 3rem 1.25rem;
+            background-color: var(--color-cream);
+            padding: 2rem 1rem;
         }
-
         .checkout-container {
-            max-width: 560px;
+            max-width: 650px;
             margin: 0 auto;
-            background: var(--ck-surface);
-            padding: 2.75rem 2.25rem;
-            border-radius: 20px;
-            border: 1px solid var(--ck-line);
-            box-shadow: 0 1px 2px rgba(43,38,34,0.04), 0 12px 32px rgba(43,38,34,0.06);
+            background: var(--color-white);
+            padding: 2.5rem;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
-
         .checkout-header {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 2.25rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--ck-line);
+            align-items: center;
+            margin-bottom: 2rem;
         }
         .checkout-header h2 {
-            color: var(--ck-ink);
-            font-size: 1.4rem;
-            font-weight: 700;
-            letter-spacing: -0.01em;
+            color: var(--color-dark);
+            font-size: 1.8rem;
         }
         .btn-back {
             text-decoration: none;
-            color: var(--ck-muted);
-            font-weight: 500;
-            font-size: 0.82rem;
-            transition: color 0.2s ease;
+            color: var(--color-brown);
+            font-weight: 600;
+            font-size: 0.9rem;
         }
-        .btn-back:hover { color: var(--ck-accent); }
-
-        .form-section-label {
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--ck-muted);
-            margin: 2rem 0 0.9rem;
-        }
-        .form-section-label:first-of-type { margin-top: 0; }
-
         .form-group {
-            margin-bottom: 1.1rem;
+            margin-bottom: 1.2rem;
             text-align: left;
         }
         .form-group label {
-            font-size: 0.84rem;
-            font-weight: 500;
-            color: var(--ck-ink);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-dark);
             display: block;
-            margin-bottom: 0.4rem;
+            margin-bottom: 5px;
         }
         .form-group input, .form-group select {
             width: 100%;
-            padding: 0.8rem 0.95rem;
-            border: 1px solid var(--ck-line);
-            border-radius: 10px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.92rem;
-            color: var(--ck-ink);
-            background: var(--ck-surface);
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
-        }
-        .form-group input:focus, .form-group select:focus {
-            outline: none;
-            border-color: var(--ck-accent);
-            box-shadow: 0 0 0 3px var(--ck-accent-soft);
-        }
-        .form-group input::placeholder { color: #BDB5AA; }
-
-        .info-rek-box {
-            background: var(--ck-bg);
-            border: 1px solid var(--ck-line);
-            padding: 1.1rem 1.2rem;
+            padding: 0.9rem 1rem;
+            border: 1px solid #ddd;
             border-radius: 12px;
-            font-size: 0.88rem;
-            margin: 1.25rem 0 0.5rem;
-            color: var(--ck-ink);
+            font-family: 'Poppins', sans-serif;
+            background: #fff;
+        }
+        .info-rek-box {
+            background: var(--color-cream);
+            border: 1px dashed var(--color-brown);
+            padding: 1.2rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            margin: 1.5rem 0;
+            color: var(--color-dark);
             line-height: 1.6;
         }
-        .info-rek-box strong { font-weight: 700; }
-
         .btn-submit-wa {
             width: 100%;
-            background: var(--ck-ink);
+            background: #25D366;
             color: white;
             border: none;
             padding: 1rem;
-            border-radius: 12px;
-            font-size: 0.95rem;
-            font-weight: 600;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
             cursor: pointer;
-            margin-top: 1.75rem;
-            transition: background 0.2s ease, transform 0.15s ease;
+            transition: 0.3s;
         }
         .btn-submit-wa:hover {
-            background: #25D366;
-            transform: translateY(-1px);
+            background: #20b959;
+            transform: translateY(-2px);
         }
 
-        /* ====== Pilihan Metode Pembayaran ====== */
+        /* ====== Tambahan: Pilihan Metode Pembayaran ====== */
         .payment-method-label {
-            font-size: 0.84rem;
-            font-weight: 500;
-            color: var(--ck-ink);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-dark);
             display: block;
-            margin-bottom: 0.7rem;
+            margin-bottom: 8px;
         }
         .payment-tabs {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.6rem;
             margin-bottom: 1rem;
-            background: var(--ck-bg);
-            padding: 0.3rem;
-            border-radius: 12px;
-            border: 1px solid var(--ck-line);
         }
         .payment-tab {
             flex: 1;
             text-align: center;
-            padding: 0.65rem 0.5rem;
-            border-radius: 9px;
+            padding: 0.8rem 0.5rem;
+            border: 2px solid #ddd;
+            border-radius: 12px;
             font-weight: 600;
-            font-size: 0.82rem;
-            color: var(--ck-muted);
+            font-size: 0.85rem;
+            color: var(--color-dark);
             cursor: pointer;
-            background: transparent;
-            transition: all 0.2s ease;
+            background: #fff;
+            transition: 0.25s;
             user-select: none;
         }
         .payment-tab.active {
-            background: var(--ck-surface);
-            color: var(--ck-ink);
-            box-shadow: 0 1px 3px rgba(43,38,34,0.08);
+            border-color: var(--color-brown);
+            background: var(--color-cream);
+            color: var(--color-brown);
         }
         .payment-panel {
             display: none;
         }
         .payment-panel.active {
             display: block;
-            animation: ckFadeIn 0.25s ease;
-        }
-        @keyframes ckFadeIn {
-            from { opacity: 0; transform: translateY(4px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Panel QRIS */
         .qris-box {
-            background: var(--ck-bg);
-            border: 1px solid var(--ck-line);
-            padding: 1.4rem;
-            border-radius: 14px;
-            margin: 1.25rem 0 0.5rem;
+            background: var(--color-cream);
+            border: 1px dashed var(--color-brown);
+            padding: 1.2rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
             text-align: center;
-            color: var(--ck-ink);
-        }
-        .qris-img-wrap {
-            position: relative;
-            width: 200px;
-            margin: 0 auto 0.9rem;
+            color: var(--color-dark);
         }
         .qris-box img {
-            display: block;
+            max-width: 240px;
             width: 100%;
-            border-radius: 10px;
+            border-radius: 12px;
             background: #fff;
-            padding: 10px;
-            border: 1px solid var(--ck-line);
-            transition: opacity 0.35s ease, filter 0.35s ease;
+            padding: 8px;
+            border: 1px solid #eee;
+            margin-bottom: 0.8rem;
         }
-        .qris-box img.is-refreshing {
-            opacity: 0.35;
-            filter: blur(2px);
+        .payment-methods-img {
+            max-width: 100% !important;
+            border-radius: 12px;
         }
-        .qris-refresh-overlay {
-            position: absolute;
-            inset: 0;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.72rem;
-            font-weight: 600;
-            color: var(--ck-accent);
-            letter-spacing: 0.02em;
-        }
-        .qris-refresh-overlay.show { display: flex; }
-
         .qris-timer {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--ck-ink);
-            margin: 0.3rem 0;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--color-brown);
+            margin: 0.4rem 0;
             font-variant-numeric: tabular-nums;
-            letter-spacing: 0.02em;
         }
-        .qris-timer.expiring {
-            color: var(--ck-danger);
+        .qris-timer.expired {
+            color: #e74c3c;
         }
         .qris-status-text {
-            font-size: 0.8rem;
-            color: var(--ck-muted);
-            margin-bottom: 0.4rem;
-        }
-        .qris-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            font-size: 0.72rem;
-            font-weight: 600;
-            color: var(--ck-success);
-            background: #E7F4EC;
-            padding: 0.25rem 0.7rem;
-            border-radius: 20px;
-            margin-bottom: 0.7rem;
-        }
-        .qris-badge::before {
-            content: "";
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--ck-success);
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
         }
         .btn-download-qris {
-            display: inline-block;
-            font-size: 0.78rem;
-            font-weight: 600;
-            color: var(--ck-ink);
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
             text-decoration: none;
-            border: 1px solid var(--ck-line);
-            background: var(--ck-surface);
-            padding: 0.5rem 1rem;
-            border-radius: 10px;
-            margin-top: 0.6rem;
-            transition: 0.2s ease;
+            background: #EA5A34;
+            border: none;
+            padding: 1rem;
+            border-radius: 16px;
+            margin-bottom: 0.8rem;
+            transition: 0.25s;
         }
         .btn-download-qris:hover {
-            border-color: var(--ck-accent);
-            color: var(--ck-accent);
+            background: #d64b27;
+        }
+        .btn-refresh-qris {
+            display: none;
+            margin: 0.6rem auto 0;
+            background: var(--color-brown);
+            color: #fff;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .btn-refresh-qris.show {
+            display: inline-block;
         }
     </style>
 </head>
@@ -281,7 +203,6 @@
         </div>
 
         <form id="waForm" onsubmit="sendWhatsAppOrder(event)">
-            <div class="form-section-label">Detail Acara</div>
             <div class="form-group">
                 <label>Nama pengantin/pemesan :</label>
                 <input type="text" id="f_nama" required placeholder="Contoh: Rian & Siska">
@@ -302,15 +223,13 @@
                 <label>Waktu photobooth/waktu acara :</label>
                 <input type="text" id="f_waktu" required placeholder="Contoh: 11.00 - 13.00 WIB">
             </div>
-
-            <div class="form-section-label">Detail Paket</div>
             <div class="form-group">
                 <label>Paket yang dipilih :</label>
                 <input type="text" id="f_paket" required placeholder="Contoh: Paket Seru / Paket Newspaper">
             </div>
             <div class="form-group">
                 <label>Pilihan backdrop :</label>
-                <input type="text" id="f_backdrop" required placeholder="Contoh: gold/silver">
+                <input type="text" id="f_backdrop" required placeholder="Contoh: Rustic Floral / Minimalist White">
             </div>
             <div class="form-group">
                 <label>Pilihan template :</label>
@@ -318,12 +237,11 @@
             </div>
 
             <!-- ====== Pilihan Metode Pembayaran ====== -->
-            <div class="form-section-label">Pembayaran</div>
             <div class="form-group">
                 <span class="payment-method-label">Metode pembayaran DP :</span>
                 <div class="payment-tabs">
-                    <div class="payment-tab active" id="tabTransfer" onclick="switchPaymentMethod('transfer')">Transfer Bank</div>
-                    <div class="payment-tab" id="tabQris" onclick="switchPaymentMethod('qris')">QRIS</div>
+                    <div class="payment-tab active" id="tabTransfer" onclick="switchPaymentMethod('transfer')">🏦 Transfer Bank</div>
+                    <div class="payment-tab" id="tabQris" onclick="switchPaymentMethod('qris')">📱 QRIS</div>
                 </div>
 
                 <!-- Panel Transfer Bank -->
@@ -337,19 +255,18 @@
                 <!-- Panel QRIS -->
                 <div class="payment-panel" id="panelQris">
                     <div class="qris-box">
-                        <p style="margin-bottom: 0.9rem;"><strong>Pembayaran DP sebesar Rp. 500.000</strong> untuk keep tanggal dan pelunasan H-1 acara</p>
-
-                        <div class="qris-badge" id="qrisBadge">Kode aktif</div>
-
-                        <div class="qris-img-wrap">
-                            <img src="aset/qris.png" alt="QRIS Temani Photobooth" id="qrisImg">
-                            <div class="qris-refresh-overlay" id="qrisOverlay">Memperbarui…</div>
+                        <p><strong>Pembayaran DP sebesar Rp. 500.000</strong> untuk keep tanggal dan pelunasan H-1 acara</p>
+                        <img src="aset/qris.png" alt="QRIS Temani Photobooth">
+                        <img src="aset/metode.png" alt="Menerima Berbagai Pembayaran QR" class="payment-methods-img">
+                        <div>
+                            <a href="qris.png" download="QRIS-Temani-Photobooth.png" class="btn-download-qris">Simpan Kode QR</a>
                         </div>
-
-                        <a href="aset/qris.png" download="QRIS-Temani-Photobooth.png" class="btn-download-qris">⬇ Download QRIS</a>
-
-                        <div class="qris-status-text" style="margin-top: 0.9rem;">Kode diperbarui otomatis setiap</div>
+                        <div class="qris-status-text">Selesaikan pembayaran sebelum waktu habis:</div>
                         <div class="qris-timer" id="qrisTimer">05:00</div>
+                        <div class="qris-status-text" id="qrisExpiredText" style="display:none; color:#e74c3c; font-weight:600;">
+                            ⏱️ Kode QRIS sudah kedaluwarsa. Silakan perbarui untuk mendapatkan kode baru.
+                        </div>
+                        <button type="button" class="btn-refresh-qris" id="btnRefreshQris" onclick="resetQrisTimer()">Perbarui Kode QRIS</button>
                     </div>
                 </div>
             </div>
@@ -372,7 +289,6 @@
         let paymentMethod = 'transfer'; // default
         let qrisInterval = null;
         let qrisSecondsLeft = 300; // 5 menit
-        const QRIS_DURATION = 300;
 
         function switchPaymentMethod(method) {
             paymentMethod = method;
@@ -390,19 +306,24 @@
         }
 
         function startQrisTimer() {
+            // Mulai ulang dari 5 menit setiap kali panel QRIS dibuka
             stopQrisTimer();
-            qrisSecondsLeft = QRIS_DURATION;
+            qrisSecondsLeft = 300;
             updateQrisDisplay();
+
+            document.getElementById('qrisTimer').classList.remove('expired');
+            document.getElementById('qrisExpiredText').style.display = 'none';
+            document.getElementById('btnRefreshQris').classList.remove('show');
 
             qrisInterval = setInterval(() => {
                 qrisSecondsLeft--;
-
                 if (qrisSecondsLeft <= 0) {
-                    // Otomatis "perbarui" kode QRIS lalu mulai ulang hitungan mundur
-                    refreshQrisVisual();
-                    qrisSecondsLeft = QRIS_DURATION;
+                    qrisSecondsLeft = 0;
+                    updateQrisDisplay();
+                    expireQris();
+                } else {
+                    updateQrisDisplay();
                 }
-                updateQrisDisplay();
             }, 1000);
         }
 
@@ -417,32 +338,28 @@
             const menit = Math.floor(qrisSecondsLeft / 60).toString().padStart(2, '0');
             const detik = (qrisSecondsLeft % 60).toString().padStart(2, '0');
             document.getElementById('qrisTimer').textContent = `${menit}:${detik}`;
-
-            const timerEl = document.getElementById('qrisTimer');
-            timerEl.classList.toggle('expiring', qrisSecondsLeft <= 15);
         }
 
-        // Efek visual "kode baru" — gambar tidak benar-benar berganti,
-        // ini hanya animasi refresh singkat agar terasa seperti kode diperbarui
-        function refreshQrisVisual() {
-            const img = document.getElementById('qrisImg');
-            const overlay = document.getElementById('qrisOverlay');
-            const badge = document.getElementById('qrisBadge');
+        function expireQris() {
+            stopQrisTimer();
+            document.getElementById('qrisTimer').classList.add('expired');
+            document.getElementById('qrisExpiredText').style.display = 'block';
+            document.getElementById('btnRefreshQris').classList.add('show');
+        }
 
-            img.classList.add('is-refreshing');
-            overlay.classList.add('show');
-            badge.textContent = 'Memperbarui…';
-
-            setTimeout(() => {
-                img.classList.remove('is-refreshing');
-                overlay.classList.remove('show');
-                badge.textContent = 'Kode aktif';
-            }, 900);
+        function resetQrisTimer() {
+            startQrisTimer();
         }
 
         // Fungsi Mengirim Data Form ke WhatsApp
         function sendWhatsAppOrder(event) {
             event.preventDefault();
+
+            // Jika metode QRIS dipilih tapi waktu sudah habis, minta perbarui dulu
+            if (paymentMethod === 'qris' && qrisSecondsLeft <= 0) {
+                alert('Kode QRIS sudah kedaluwarsa. Silakan klik "Perbarui Kode QRIS" terlebih dahulu.');
+                return;
+            }
 
             const nama = document.getElementById('f_nama').value;
             const acara = document.getElementById('f_acara').value;
