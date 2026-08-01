@@ -6,81 +6,269 @@
     <title>Formulir Order | Temani Photobooth</title>
     <!-- Memanggil file CSS utama Anda -->
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Styling khusus halaman checkout */
+        /* ============================================
+           Checkout — Minimalist Clean Design
+           ============================================ */
+        :root {
+            --ck-bg: var(--color-cream, #F7F4EF);
+            --ck-surface: var(--color-white, #FFFFFF);
+            --ck-ink: var(--color-dark, #2B2622);
+            --ck-muted: #8A8177;
+            --ck-line: #E9E4DC;
+            --ck-accent: var(--color-brown, #A9683F);
+            --ck-accent-soft: #F1E8DE;
+            --ck-danger: #C0503B;
+            --ck-success: #2F8F5B;
+        }
+
         body {
-            background-color: var(--color-cream);
-            padding: 2rem 1rem;
+            background-color: var(--ck-bg);
+            padding: 3rem 1.25rem;
         }
+
         .checkout-container {
-            max-width: 650px;
+            max-width: 560px;
             margin: 0 auto;
-            background: var(--color-white);
-            padding: 2.5rem;
-            border-radius: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            background: var(--ck-surface);
+            padding: 2.75rem 2.25rem;
+            border-radius: 20px;
+            border: 1px solid var(--ck-line);
+            box-shadow: 0 1px 2px rgba(43,38,34,0.04), 0 12px 32px rgba(43,38,34,0.06);
         }
+
         .checkout-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
+            align-items: baseline;
+            margin-bottom: 2.25rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--ck-line);
         }
         .checkout-header h2 {
-            color: var(--color-dark);
-            font-size: 1.8rem;
+            color: var(--ck-ink);
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
         }
         .btn-back {
             text-decoration: none;
-            color: var(--color-brown);
-            font-weight: 600;
-            font-size: 0.9rem;
+            color: var(--ck-muted);
+            font-weight: 500;
+            font-size: 0.82rem;
+            transition: color 0.2s ease;
         }
+        .btn-back:hover { color: var(--ck-accent); }
+
+        .form-section-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ck-muted);
+            margin: 2rem 0 0.9rem;
+        }
+        .form-section-label:first-of-type { margin-top: 0; }
+
         .form-group {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.1rem;
             text-align: left;
         }
         .form-group label {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--color-dark);
+            font-size: 0.84rem;
+            font-weight: 500;
+            color: var(--ck-ink);
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 0.4rem;
         }
         .form-group input, .form-group select {
             width: 100%;
-            padding: 0.9rem 1rem;
-            border: 1px solid #ddd;
-            border-radius: 12px;
+            padding: 0.8rem 0.95rem;
+            border: 1px solid var(--ck-line);
+            border-radius: 10px;
             font-family: 'Poppins', sans-serif;
-            background: #fff;
+            font-size: 0.92rem;
+            color: var(--ck-ink);
+            background: var(--ck-surface);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--ck-accent);
+            box-shadow: 0 0 0 3px var(--ck-accent-soft);
+        }
+        .form-group input::placeholder { color: #BDB5AA; }
+
         .info-rek-box {
-            background: var(--color-cream);
-            border: 1px dashed var(--color-brown);
-            padding: 1.2rem;
+            background: var(--ck-bg);
+            border: 1px solid var(--ck-line);
+            padding: 1.1rem 1.2rem;
             border-radius: 12px;
-            font-size: 0.9rem;
-            margin: 1.5rem 0;
-            color: var(--color-dark);
+            font-size: 0.88rem;
+            margin: 1.25rem 0 0.5rem;
+            color: var(--ck-ink);
             line-height: 1.6;
         }
+        .info-rek-box strong { font-weight: 700; }
+
         .btn-submit-wa {
             width: 100%;
-            background: #25D366;
+            background: var(--ck-ink);
             color: white;
             border: none;
             padding: 1rem;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 700;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: 0.3s;
+            margin-top: 1.75rem;
+            transition: background 0.2s ease, transform 0.15s ease;
         }
         .btn-submit-wa:hover {
-            background: #20b959;
-            transform: translateY(-2px);
+            background: #25D366;
+            transform: translateY(-1px);
+        }
+
+        /* ====== Pilihan Metode Pembayaran ====== */
+        .payment-method-label {
+            font-size: 0.84rem;
+            font-weight: 500;
+            color: var(--ck-ink);
+            display: block;
+            margin-bottom: 0.7rem;
+        }
+        .payment-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            background: var(--ck-bg);
+            padding: 0.3rem;
+            border-radius: 12px;
+            border: 1px solid var(--ck-line);
+        }
+        .payment-tab {
+            flex: 1;
+            text-align: center;
+            padding: 0.65rem 0.5rem;
+            border-radius: 9px;
+            font-weight: 600;
+            font-size: 0.82rem;
+            color: var(--ck-muted);
+            cursor: pointer;
+            background: transparent;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+        .payment-tab.active {
+            background: var(--ck-surface);
+            color: var(--ck-ink);
+            box-shadow: 0 1px 3px rgba(43,38,34,0.08);
+        }
+        .payment-panel {
+            display: none;
+        }
+        .payment-panel.active {
+            display: block;
+            animation: ckFadeIn 0.25s ease;
+        }
+        @keyframes ckFadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Panel QRIS */
+        .qris-box {
+            background: var(--ck-bg);
+            border: 1px solid var(--ck-line);
+            padding: 1.4rem;
+            border-radius: 14px;
+            margin: 1.25rem 0 0.5rem;
+            text-align: center;
+            color: var(--ck-ink);
+        }
+        .qris-img-wrap {
+            position: relative;
+            width: 200px;
+            margin: 0 auto 0.9rem;
+        }
+        .qris-box img {
+            display: block;
+            width: 100%;
+            border-radius: 10px;
+            background: #fff;
+            padding: 10px;
+            border: 1px solid var(--ck-line);
+            transition: opacity 0.35s ease, filter 0.35s ease;
+        }
+        .qris-box img.is-refreshing {
+            opacity: 0.35;
+            filter: blur(2px);
+        }
+        .qris-refresh-overlay {
+            position: absolute;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--ck-accent);
+            letter-spacing: 0.02em;
+        }
+        .qris-refresh-overlay.show { display: flex; }
+
+        .qris-timer {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--ck-ink);
+            margin: 0.3rem 0;
+            font-variant-numeric: tabular-nums;
+            letter-spacing: 0.02em;
+        }
+        .qris-timer.expiring {
+            color: var(--ck-danger);
+        }
+        .qris-status-text {
+            font-size: 0.8rem;
+            color: var(--ck-muted);
+            margin-bottom: 0.4rem;
+        }
+        .qris-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--ck-success);
+            background: #E7F4EC;
+            padding: 0.25rem 0.7rem;
+            border-radius: 20px;
+            margin-bottom: 0.7rem;
+        }
+        .qris-badge::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--ck-success);
+        }
+        .btn-download-qris {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--ck-ink);
+            text-decoration: none;
+            border: 1px solid var(--ck-line);
+            background: var(--ck-surface);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            margin-top: 0.6rem;
+            transition: 0.2s ease;
+        }
+        .btn-download-qris:hover {
+            border-color: var(--ck-accent);
+            color: var(--ck-accent);
         }
     </style>
 </head>
@@ -93,6 +281,7 @@
         </div>
 
         <form id="waForm" onsubmit="sendWhatsAppOrder(event)">
+            <div class="form-section-label">Detail Acara</div>
             <div class="form-group">
                 <label>Nama pengantin/pemesan :</label>
                 <input type="text" id="f_nama" required placeholder="Contoh: Rian & Siska">
@@ -113,22 +302,56 @@
                 <label>Waktu photobooth/waktu acara :</label>
                 <input type="text" id="f_waktu" required placeholder="Contoh: 11.00 - 13.00 WIB">
             </div>
+
+            <div class="form-section-label">Detail Paket</div>
             <div class="form-group">
                 <label>Paket yang dipilih :</label>
                 <input type="text" id="f_paket" required placeholder="Contoh: Paket Seru / Paket Newspaper">
             </div>
             <div class="form-group">
                 <label>Pilihan backdrop :</label>
-                <input type="text" id="f_backdrop" required placeholder="Contoh: Rustic Floral / Minimalist White">
+                <input type="text" id="f_backdrop" required placeholder="Contoh: gold/silver">
             </div>
             <div class="form-group">
                 <label>Pilihan template :</label>
                 <input type="text" id="f_template" required placeholder="Contoh: Template Strip 3 Foto">
             </div>
-            
-            <div class="info-rek-box">
-                <p><strong>Pembayaran DP sebesar Rp. 500.000</strong> untuk keep tanggal dan pelunasan H-1 acara</p>
-                <p style="margin-top: 8px;"><strong>No. rek :</strong><br>1943748616 (BNI) a.n Yoga Nugraha</p>
+
+            <!-- ====== Pilihan Metode Pembayaran ====== -->
+            <div class="form-section-label">Pembayaran</div>
+            <div class="form-group">
+                <span class="payment-method-label">Metode pembayaran DP :</span>
+                <div class="payment-tabs">
+                    <div class="payment-tab active" id="tabTransfer" onclick="switchPaymentMethod('transfer')">Transfer Bank</div>
+                    <div class="payment-tab" id="tabQris" onclick="switchPaymentMethod('qris')">QRIS</div>
+                </div>
+
+                <!-- Panel Transfer Bank -->
+                <div class="payment-panel active" id="panelTransfer">
+                    <div class="info-rek-box">
+                        <p><strong>Pembayaran DP sebesar Rp. 500.000</strong> untuk keep tanggal dan pelunasan H-1 acara</p>
+                        <p style="margin-top: 8px;"><strong>No. rek :</strong><br>1943748616 (BNI) a.n Yoga Nugraha</p>
+                    </div>
+                </div>
+
+                <!-- Panel QRIS -->
+                <div class="payment-panel" id="panelQris">
+                    <div class="qris-box">
+                        <p style="margin-bottom: 0.9rem;"><strong>Pembayaran DP sebesar Rp. 500.000</strong> untuk keep tanggal dan pelunasan H-1 acara</p>
+
+                        <div class="qris-badge" id="qrisBadge">Kode aktif</div>
+
+                        <div class="qris-img-wrap">
+                            <img src="aset/qris.png" alt="QRIS Temani Photobooth" id="qrisImg">
+                            <div class="qris-refresh-overlay" id="qrisOverlay">Memperbarui…</div>
+                        </div>
+
+                        <a href="aset/qris.png" download="QRIS-Temani-Photobooth.png" class="btn-download-qris">⬇ Download QRIS</a>
+
+                        <div class="qris-status-text" style="margin-top: 0.9rem;">Kode diperbarui otomatis setiap</div>
+                        <div class="qris-timer" id="qrisTimer">05:00</div>
+                    </div>
+                </div>
             </div>
 
             <button type="submit" class="btn-submit-wa">Kirim Pesanan via WhatsApp 🚀</button>
@@ -145,10 +368,82 @@
             }
         });
 
+        // ====== Logika Pilihan Metode Pembayaran ======
+        let paymentMethod = 'transfer'; // default
+        let qrisInterval = null;
+        let qrisSecondsLeft = 300; // 5 menit
+        const QRIS_DURATION = 300;
+
+        function switchPaymentMethod(method) {
+            paymentMethod = method;
+
+            document.getElementById('tabTransfer').classList.toggle('active', method === 'transfer');
+            document.getElementById('tabQris').classList.toggle('active', method === 'qris');
+            document.getElementById('panelTransfer').classList.toggle('active', method === 'transfer');
+            document.getElementById('panelQris').classList.toggle('active', method === 'qris');
+
+            if (method === 'qris') {
+                startQrisTimer();
+            } else {
+                stopQrisTimer();
+            }
+        }
+
+        function startQrisTimer() {
+            stopQrisTimer();
+            qrisSecondsLeft = QRIS_DURATION;
+            updateQrisDisplay();
+
+            qrisInterval = setInterval(() => {
+                qrisSecondsLeft--;
+
+                if (qrisSecondsLeft <= 0) {
+                    // Otomatis "perbarui" kode QRIS lalu mulai ulang hitungan mundur
+                    refreshQrisVisual();
+                    qrisSecondsLeft = QRIS_DURATION;
+                }
+                updateQrisDisplay();
+            }, 1000);
+        }
+
+        function stopQrisTimer() {
+            if (qrisInterval) {
+                clearInterval(qrisInterval);
+                qrisInterval = null;
+            }
+        }
+
+        function updateQrisDisplay() {
+            const menit = Math.floor(qrisSecondsLeft / 60).toString().padStart(2, '0');
+            const detik = (qrisSecondsLeft % 60).toString().padStart(2, '0');
+            document.getElementById('qrisTimer').textContent = `${menit}:${detik}`;
+
+            const timerEl = document.getElementById('qrisTimer');
+            timerEl.classList.toggle('expiring', qrisSecondsLeft <= 15);
+        }
+
+        // Efek visual "kode baru" — gambar tidak benar-benar berganti,
+        // ini hanya animasi refresh singkat agar terasa seperti kode diperbarui
+        function refreshQrisVisual() {
+            const img = document.getElementById('qrisImg');
+            const overlay = document.getElementById('qrisOverlay');
+            const badge = document.getElementById('qrisBadge');
+
+            img.classList.add('is-refreshing');
+            overlay.classList.add('show');
+            badge.textContent = 'Memperbarui…';
+
+            setTimeout(() => {
+                img.classList.remove('is-refreshing');
+                overlay.classList.remove('show');
+                badge.textContent = 'Kode aktif';
+            }, 900);
+        }
+
         // Fungsi Mengirim Data Form ke WhatsApp
         function sendWhatsAppOrder(event) {
             event.preventDefault();
-            
+
             const nama = document.getElementById('f_nama').value;
             const acara = document.getElementById('f_acara').value;
             const lokasi = document.getElementById('f_lokasi').value;
@@ -157,12 +452,14 @@
             const paket = document.getElementById('f_paket').value;
             const backdrop = document.getElementById('f_backdrop').value;
             const template = document.getElementById('f_template').value;
-            
+
+            const metodeBayar = paymentMethod === 'qris' ? 'QRIS' : 'Transfer Bank (BNI 1943748616 a.n Yoga Nugraha)';
+
             const nomorWA = '6282128614356'; // Nomor WhatsApp Anda
-            
+
             // Format pesan WhatsApp
-            const pesan = `Halo Admin Temani Photobooth,%0ASaya ingin melakukan pemesanan dengan detail berikut:%0A%0A*Formulir Order*%0A- Nama pengantin/pemesan : ${nama}%0A- Nama acara : ${acara}%0A- Lokasi acara : ${lokasi}%0A- Hari/tanggal acara : ${tanggal}%0A- Waktu photobooth/waktu acara : ${waktu}%0A- Paket yang dipilih : ${paket}%0A- Pilihan backdrop : ${backdrop}%0A- Pilihan template : ${template}%0A%0APembayaran DP sebesar Rp. 500.000 untuk keep tanggal dan pelunasan H-1 acara melalui:%0ANo. rek : 1943748616 (BNI) a.n Yoga Nugraha%0A%0AMohon konfirmasinya ya kak. Terima kasih!`;
-            
+            const pesan = `Halo Admin Temani Photobooth,%0ASaya ingin melakukan pemesanan dengan detail berikut:%0A%0A*Formulir Order*%0A- Nama pengantin/pemesan : ${nama}%0A- Nama acara : ${acara}%0A- Lokasi acara : ${lokasi}%0A- Hari/tanggal acara : ${tanggal}%0A- Waktu photobooth/waktu acara : ${waktu}%0A- Paket yang dipilih : ${paket}%0A- Pilihan backdrop : ${backdrop}%0A- Pilihan template : ${template}%0A%0AMetode pembayaran DP : ${metodeBayar}%0APembayaran DP sebesar Rp. 500.000 untuk keep tanggal dan pelunasan H-1 acara%0A%0AMohon konfirmasinya ya kak. Terima kasih!`;
+
             // Membuka WhatsApp
             window.open(`https://wa.me/${nomorWA}?text=${pesan}`, '_blank');
         }
