@@ -204,7 +204,7 @@
 
         <form id="waForm" onsubmit="sendWhatsAppOrder(event)">
             <div class="form-group">
-                <label>Nama pengantin/pemesan :</label>
+                <label>Nama pengantin/pemesan/perusahaan :</label>
                 <input type="text" id="f_nama" required placeholder="Contoh: Rian & Siska">
             </div>
             <div class="form-group">
@@ -225,11 +225,11 @@
             </div>
             <div class="form-group">
                 <label>Paket yang dipilih :</label>
-                <input type="text" id="f_paket" required placeholder="Contoh: Paket Seru / Paket Newspaper">
+                <input type="text" id="f_paket" required placeholder="Contoh: Paket 2 Jam / Paket Newspaper">
             </div>
             <div class="form-group">
                 <label>Pilihan backdrop :</label>
-                <input type="text" id="f_backdrop" required placeholder="Contoh: Rustic Floral / Minimalist White">
+                <input type="text" id="f_backdrop" required placeholder="Contoh: Gold / SIlver">
             </div>
             <div class="form-group">
                 <label>Pilihan template :</label>
@@ -240,8 +240,8 @@
             <div class="form-group">
                 <span class="payment-method-label">Metode pembayaran DP :</span>
                 <div class="payment-tabs">
-                    <div class="payment-tab active" id="tabTransfer" onclick="switchPaymentMethod('transfer')">🏦 Transfer Bank</div>
-                    <div class="payment-tab" id="tabQris" onclick="switchPaymentMethod('qris')">📱 QRIS</div>
+                    <div class="payment-tab active" id="tabTransfer" onclick="switchPaymentMethod('transfer')">Transfer Bank</div>
+                    <div class="payment-tab" id="tabQris" onclick="switchPaymentMethod('qris')"> QRIS</div>
                 </div>
 
                 <!-- Panel Transfer Bank -->
@@ -271,7 +271,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn-submit-wa">Kirim Pesanan via WhatsApp 🚀</button>
+            <button type="submit" class="btn-submit-wa">Kirim Pesanan via WhatsApp </button>
         </form>
     </div>
 
